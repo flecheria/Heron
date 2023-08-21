@@ -1,0 +1,1 @@
+Move /Y "$(ProjectDir)bin\$(ConfigurationName)\$(ProjectName).dll" "$(ProjectDir)bin\$(ConfigurationName)\$(ProjectName).gha"
