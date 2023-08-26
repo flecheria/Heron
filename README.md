@@ -5,18 +5,22 @@ Heron is a Grasshopper add-on which enables the import and export of GIS data in
 The add-on includes components in five categories.
 
 ![toolbar-v0_3_9](https://user-images.githubusercontent.com/13613796/147161114-da93d1f6-5e9b-4884-b33e-4ace94beb404.PNG)
-# 
-### GIS Import | Export
-Components for importing and exporting GIS data.  
+
+## GIS Import-Export
+
+Components for importing and exporting GIS data:
+
 - **Import Vector**: Import vector GIS data clipped to a boundary, including SHP, GeoJSON, OSM, KML, MVT, GDB folders and HTTP sources.
 - **Import Topo**: Create a topographic mesh from a raster file (IMG, HGT, ASCII, DEM, TIF, etc) clipped to a boundary.
 - **Import Raster**: Import georeferenced raster data.
 - **Import OSM**: Import vector OpenStreetMap data clipped to a boundary. Nodes, Ways and Relations are organized onto their own branches in the output.  Building massing will also be included if it exists in the OSM data.
 - **Import LAZ**: Import LAS & LAZ files. Built on laszip.net.
 - **Export Vector**: Export Grasshopper geometry to Shapefile, GeoJSON, KML and GML file formats in the WGS84 (EPSG:4326) spatial reference system.
-# 
-### GIS Tools
-Components for translating between Rhino and GIS coordinates and processing GIS data with GDAL programs.
+
+## GIS Tools
+
+Components for translating between Rhino and GIS coordinates and processing GIS data with GDAL programs:
+
 - **Set EarthAnchorPoint**: Set the Rhino EarthAnchorPoint.  Setting the EAP is necessary for most Heron components to work properly.
 - **XY to Decimal Degrees**: Convert XY to Decimal Degrees Longitude/Latitude in the WGS84 spatial reference system.
 - **Decimal Degrees to XY**: Convert WGS84 Decimal Degrees Longitude/Latitude to X/Y.
@@ -24,28 +28,34 @@ Components for translating between Rhino and GIS coordinates and processing GIS 
 - **Gdal Ogr2Ogr**: Manipulate vector data with the GDAL OGR2OGR program given a source dataset, a destination dataset and a list of options. Information about conversion options can be found at https://gdal.org/programs/ogr2ogr.html.
 - **Gdal Warp**: Manipulate raster data with the GDAL Warp program given a source dataset, a destination dataset and a list of options. Information about Warp options can be found at https://gdal.org/programs/gdalwarp.html.
 - **Gdal Translate**: Manipulate raster data with the GDAL Translate program given a source dataset, a destination dataset and a list of options.  Information about Translate options can be found at https://gdal.org/programs/gdal_translate.html.
-# 
-### GIS REST
-Components for interacting with REST web services.
+
+## GIS REST
+
+Components for interacting with REST web services:
+
 - **ESRI REST Service Geocode**: Get coordinates based on a Point-of-Interest or Address using the ESRI geocode service.
 - **ESRI REST Service Reverse Geocode**: Get the closest addresses to XY coordinates using the ESRI reverse geocode service.
 - **Get REST Service Layers**: Discover ArcGIS REST Service Layers.
 - **Get REST Vector**: Get vector data from ArcGIS REST Services.
-- **Get REST Topo**: Get STRM, ALOS and GMRT topographic data from web services.  These services include global coverage from the Shuttle Radar Topography Mission (SRTM GL3 90m and SRTM GL1 30m), Advanced Land Observing Satellite (ALOS World 3D - 30m) and Global Multi-Resolution Topography (GMRT including bathymetry). Sources are opentopography.org and gmrt.org.
+- **Get REST Topo**: Get STRM, ALOS and GMRT topographic data from web services. These services include global coverage from the Shuttle Radar Topography Mission (SRTM GL3 90m and SRTM GL1 30m), Advanced Land Observing Satellite (ALOS World 3D - 30m) and Global Multi-Resolution Topography (GMRT including bathymetry). Sources are opentopography.org and gmrt.org.
 - **Get REST Raster**: Get raster imagery from ArcGIS REST Services.
 - **Get REST OSM**: Get an OSM vector file within a boundary from web services such as the Overpass API.  Use a search term to filter results and increase speed. 
-#
-### GIS API
-Components for interacting with tile-based services and services requiring a token.
+
+## GIS API
+
+Components for interacting with tile-based services and services requiring a token:
+
 - **Slippy Viewport**: Projects the boundary of a given Viewport to the World XY plane and calculates a good Zoom level for use with tile-based map components.
-- **Slippy Tiles**: Visualize boundaries of slippy map tiles within a given boundary at a given zoom level.  See https://en.wikipedia.org/wiki/Tiled_web_map for more information about map tiles.
+- **Slippy Tiles**: Visualize boundaries of slippy map tiles within a given boundary at a given zoom level.  [See](https://en.wikipedia.org/wiki/Tiled_web_map) for more information about map tiles.
 - **Slippy Raster**: Get raster imagery from a tile-based map service. Use the component menu to select the service.
 - **Mapbox Vector**: Get vector data from a Mapbox service. Requires a Mapbox Token.
 - **Mapbox Raster**: Get raster imagery from a Mapbox service. Requires a Mapbox Token.
 - **Mapbox Topo**: Get mesh topography from a Mapbox service. Requires a Mapbox Token.
-#
-### Utilities
-Non-GIS components 
+
+## Utilities
+
+Non-GIS components:
+
 - **Cubemap from View**: Generate a cubemap from a given plane using the specified display mode.
 - **Cubemap from View Plus**: Generate a cubemap from a given plane using the specified display mode.  This component is also able to visualize ray casting based on colors in the cubemap.
 - **Cubemap to Equirectangular**: Convert a cube map panorama to an equirectangular panorama.
@@ -59,3 +69,11 @@ Non-GIS components
 - **Color to Hex**: Convert an RGBA color to hexidecimal format.
 - **Hex to Color**: Convert a hexidecimal color to RGBA format.
 - **Visual Center**: Find the visual center of closed planar curves. The resulting point will lie within the boundary of the curve and multiple curves on a branch will be treated as a surface with holes.
+
+## Reference
+
+[VisualStudio Macro](https://learn.microsoft.com/en-us/cpp/build/reference/common-macros-for-build-commands-and-properties?view=msvc-170)  
+[VisualStudio 2022 Build Macro](https://learn.microsoft.com/en-us/cpp/build/reference/common-macros-for-build-commands-and-properties?view=msvc-170)  
+[GDAL Error osr_wrap](https://stackoverflow.com/questions/14353502/exception-while-using-gdal-in-c-sharp)  
+[GDAL C# Example](https://github.com/OSGeo/gdal/tree/master/swig/csharp/apps)  
+[SharpMap](https://github.com/SharpMap/SharpMap)  

@@ -6,6 +6,7 @@
     <Title>Heron</Title>
     <Description>Description of Heron</Description>
     <TargetExt>.gha</TargetExt>
+    <Platforms>AnyCPU;x64</Platforms>
   </PropertyGroup>
   
   <ItemGroup>
@@ -22,7 +23,7 @@
     <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="7.0.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="OsmSharp" Version="6.2.0" />
-    <PackageReference Include="RhinoCommon" Version="7.32.23221.10241" />
+    <PackageReference Include="RhinoCommon" Version="7.27.23032.13001" />
     <PackageReference Include="Unofficial.laszip.net" Version="2.2.0" />
   </ItemGroup>
   
@@ -45,5 +46,13 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
+  
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+	<Exec Command="call ../build-scripts/post-build.bat" />
+  </Target>
+  
+  <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+    <Exec Command="call ../build-scripts/pre-build.bat" />
+  </Target>
 
 </Project>

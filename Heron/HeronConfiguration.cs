@@ -25,33 +25,37 @@ namespace Heron
                 var ghLibFile = typeof(ImportVectorSRS).Assembly.Location;
                 var executingDirectory = Path.GetDirectoryName(ghLibFile);
                 string appDataFolder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-                string userSecretsFilePath = appDataFolder + @"\Microsoft\UserSecrets\6aefc65d-9849-4d4f-b9a7-16d77517db86\secrets.json";
-                string appsettingsEncrypted = executingDirectory + @"\HeronAppSettings.json";
+
+                //string userSecretsFilePath = appDataFolder + @"\Microsoft\UserSecrets\6aefc65d-9849-4d4f-b9a7-16d77517db86\secrets.json";
+                //string appsettingsEncrypted = executingDirectory + @"\HeronAppSettings.json";
 
                 ///Encrypt secrets.json on compiling machine.  Only put public keys in these secrets, not any that are should really be kept secret.
                 ///In theory appsettingsEncrypt.json file can get decrypted with the key below, but if someone tries this hard, they can have the pulbic secrets.
                 ///The main purpose here is to avoid committing readable secrets to GitHub.
-                if (File.Exists(userSecretsFilePath))
-                {
-                    EncryptAppSettings(userSecretsFilePath, appsettingsEncrypted);
-                }
+                //if (File.Exists(userSecretsFilePath))
+                //{
+                //    EncryptAppSettings(userSecretsFilePath, appsettingsEncrypted);
+                //}
 
-                ///Read secrets from appsettingsEncrypted.json which is what you should ship with the compiled version of Heron
+                ///Read secrets from appsettingsEncrypted.json which is what you should ship 
+                ///with the compiled version of Heron
                 ///appsettings.json is included in GitHub to be used as a template
-                Stream jsonStream = DecryptAppSettings(appsettingsEncrypted);
+                //Stream jsonStream = DecryptAppSettings(appsettingsEncrypted);
 
                 var configuration = new ConfigurationBuilder()
                     .SetBasePath(executingDirectory)
                     .AddJsonFile("appsettings.json", true, true)
-                    .AddEnvironmentVariables()
+                    //.AddEnvironmentVariables()
                     //.AddUserSecrets("6aefc65d-9849-4d4f-b9a7-16d77517db86")
-                    .AddJsonStream(jsonStream)
+                    //.AddJsonStream(jsonStream)
                     .Build();
                 var services = new ServiceCollection();
 
-                services.Configure<HeronConfiguration>(configuration.GetSection(typeof(HeronConfiguration).FullName));
+                services.Configure<HeronConfiguration>(
+                    configuration.GetSection(typeof(HeronConfiguration).FullName));
 
                 var provider = services.BuildServiceProvider();
+
                 return provider;
             }
 

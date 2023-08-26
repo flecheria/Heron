@@ -83,8 +83,10 @@ namespace RESTful
 
                 gdalPath = Path.Combine(executingDirectory, "gdal");
                 nativePath = Path.Combine(gdalPath, GetPlatform());
+
                 if (!Directory.Exists(nativePath))
                     throw new DirectoryNotFoundException($"GDAL native directory not found at '{nativePath}'");
+                
                 if (!File.Exists(Path.Combine(nativePath, "gdal_wrap.dll")))
                     throw new FileNotFoundException(
                         $"GDAL native wrapper file not found at '{Path.Combine(nativePath, "gdal_wrap.dll")}'");
