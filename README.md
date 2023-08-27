@@ -13,7 +13,14 @@ The add-on includes components in five categories.
 To get OpenTopography API key:
 
 - go to [opentopography website](https://www.opentopography.org/)
-- 
+- click on "Request API KEY"
+- signin or create an account
+- select "GET API KEY" to obtains your key
+- insert your AP key inside the appsettings.json, replacing "YOUR OPEN TOPOGRAPHY API KEY HERE"
+- rename appsettings.sample.json to appsettings.json
+
+![info](./README_images/0000.png)
+![info](./README_images/0001.png)
 
 ## GIS Import-Export
 
