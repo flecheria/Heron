@@ -8,6 +8,13 @@ The add-on includes components in five categories.
 
 ![toolbar-v0_3_9](https://user-images.githubusercontent.com/13613796/147161114-da93d1f6-5e9b-4884-b33e-4ace94beb404.PNG)
 
+## How to get OpenTopography API key
+
+To get OpenTopography API key:
+
+- go to [opentopography website](https://www.opentopography.org/)
+- 
+
 ## GIS Import-Export
 
 Components for importing and exporting GIS data:
